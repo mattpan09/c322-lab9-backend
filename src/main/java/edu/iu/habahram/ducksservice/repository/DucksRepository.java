@@ -28,7 +28,11 @@ public class DucksRepository {
         }
         File file = new File(DATABASE_NAME);
         if(!file.exists()) {
-            file.mkdirs();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
